@@ -4,10 +4,12 @@
   "description": "",
   "main": "build/server.js",
   "scripts": {
-    "build": "rimraf ./build && tsc",
+    "build:server": "rimraf ./build && tsc",
+    "build:client": "cd src/client && yarn build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "nodemon",
-    "start": "npm run build && node build/server.js"
+    "client": "cd src/client && yarn start",
+    "server": "nodemon build/server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "repository": {
     "type": "git",
@@ -35,6 +37,7 @@
     "@types/redis": "^2.8.14",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
+    "concurrently": "^5.1.0",
     "crypto-js": "^3.1.9-1",
     "express": "^4.17.1",
     "redis": "^2.8.0"
