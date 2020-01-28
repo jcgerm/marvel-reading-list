@@ -47,6 +47,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var axios_1 = __importDefault(require("axios"));
+var comic_1 = __importDefault(require("../models/comic"));
 var redisdb = __importStar(require("../redis"));
 var config_1 = require("../config");
 function getComics(req, res) {
@@ -72,7 +73,9 @@ function getComics(req, res) {
                             params: config_1.globalParams
                         })
                             .then(function (resp) {
-                            result = resp.data.data.results;
+                            result = resp.data.data.results.map(function (comic) {
+                                return new comic_1.default(comic.id, comic.title, comic.thumbnail);
+                            });
                             redisdb.set(key, JSON.stringify(result));
                             res.json(result);
                         })
