@@ -8,8 +8,9 @@
     "build:client": "cd src/client && yarn build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd src/client && yarn start",
-    "server": "node build/server.js",
+    "server": "nodemon build/server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "start": "node build/server.js",
     "postinstall": "tsc"
   },
   "engines": {
