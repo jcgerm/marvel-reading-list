@@ -1,3 +1,28 @@
+.ComicImg {
+  margin: 5px;
+  width: 215px;
+  text-align: center;
+}
+
+.ComicList {
+  display: block;
+  justify-content: center;
+}
+
+.ComicTitle {
+  font-size: 14px;
+  font-style: normal;
+  font-variant-ligatures: normal;
+  font-variant-caps: normal;
+  font-variant-numeric: normal;
+  font-variant-east-asian: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-size: 14px;
+  line-height: 1.2;
+  font-family: "Roboto Bold", "Trebuchet MS", Helvetica, Arial, sans-serif;
+}
+
 .App {
   text-align: center;
 }

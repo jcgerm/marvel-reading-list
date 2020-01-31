@@ -14,6 +14,7 @@ exports.BASE_URL = "https://gateway.marvel.com";
 exports.REDIS_URL = "redis-17999.c84.us-east-1-2.ec2.cloud.redislabs.com";
 exports.REDIS_PORT = 17999;
 exports.REDIS_PASS = "n1YSCC4rJ91p6dlSwN5xxaxbYUdxrk2B";
+exports.IMAGE_NOT_AVAILABLE = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available";
 var ts = Date.now().toString();
 var stringToHash = ts + exports.PRIVATE_KEY + exports.PUBLIC_KEY;
 var hash = CryptoJS.MD5(stringToHash).toString(CryptoJS.enc.Hex);

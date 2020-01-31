@@ -6,7 +6,7 @@ export default class Comic {
   constructor(id: number, title: string, thumbnail: string) {
     this.id = id;
     this.title = title;
-    this.thumbnail = thumbnail;
+    this.thumbnail = `${thumbnail}/portrait_xlarge.jpg`;
   }
 
   getTitle() {
