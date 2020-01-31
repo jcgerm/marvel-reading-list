@@ -12,12 +12,12 @@ export type ComicProps = {
 class Comic extends React.PureComponent<ComicProps> {
   render() {
     return (
-      <div>
-        <h2>{this.props.title}</h2>
+      <div className="ComicImg">
         <div>
-          <img
-            src={`${this.props.thumbnail.path}.${this.props.thumbnail.extension}`}
-          />
+          <img src={`${this.props.thumbnail}`} />
+        </div>
+        <div className="ComicTitle">
+          <p>{this.props.title}</p>
         </div>
       </div>
     );

@@ -73,8 +73,9 @@ function getComics(req, res) {
                             params: config_1.globalParams
                         })
                             .then(function (resp) {
+                            console.log(resp.data.data.results);
                             result = resp.data.data.results.map(function (comic) {
-                                return new comic_1.default(comic.id, comic.title, comic.thumbnail);
+                                return new comic_1.default(comic.id, comic.title, comic.thumbnail.path);
                             });
                             redisdb.set(key, JSON.stringify(result));
                             res.json(result);

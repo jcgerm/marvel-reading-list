@@ -1,18 +1,20 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import "./App.css";
 
 import comicsService from "./services/comicsService";
 import ComicList from "./components/ComicList";
-import React from "react";
+import AppSearchBar from "./components/AppSearchBar";
 
 class App extends Component {
   state = {
     comics: []
   };
 
-  componentDidMount() {
-    this.showListOfComics();
-  }
+  searchForComics = (searchString: string) => {
+    comicsService
+      .getListOfComicsForCharacters(searchString)
+      .then(res => this.setState({ comics: res }));
+  };
 
   showListOfComics = () => {
     comicsService.getListOfComics().then(res => this.setState({ comics: res }));
@@ -21,6 +23,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <AppSearchBar search={this.searchForComics} />
         <ComicList comics={this.state.comics} />
       </div>
     );
